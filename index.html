@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lucas Mendes — Sobre Mim</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Estilos específicos desta página -->
+  <style>
+    /* --- Hero / apresentação --- */
+    .hero {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      padding: 2rem 0 3rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-avatar {
+      width: 160px; height: 160px;
+      border-radius: 50%;
+      border: 4px solid var(--accent);
+      object-fit: cover;
+      /* Placeholder colorido quando não há imagem real */
+      background: linear-gradient(135deg, var(--accent), var(--bg-secondary));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 4rem;
+      flex-shrink: 0;
+    }
+
+    .hero-text h1 {
+      font-size: 2.4rem;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .hero-text h1 span { color: var(--accent); }
+
+    .hero-text p {
+      color: var(--text-muted);
+      margin: 0.8rem 0 1.4rem;
+      max-width: 520px;
+    }
+
+    /* --- Grid de informações --- */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.2rem;
+      margin-bottom: 3rem;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+    }
+
+    .info-icon {
+      font-size: 1.4rem;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    .info-item strong { display: block; font-size: 0.8rem; color: var(--text-muted); }
+    .info-item span   { font-weight: 500; }
+
+    /* --- Hobbies --- */
+    .hobbies-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .hobby-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.2rem;
+      text-align: center;
+      transition: border-color var(--transition), transform var(--transition);
+    }
+    .hobby-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+    }
+
+    .hobby-card span { font-size: 2rem; display: block; margin-bottom: 0.4rem; }
+    .hobby-card p    { font-size: 0.9rem; color: var(--text-muted); }
+
+    /* --- Habilidades / barra de progresso --- */
+    .skills { margin-top: 3rem; }
+
+    .skill-item { margin-bottom: 1.2rem; }
+    .skill-label {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 500;
+      margin-bottom: 0.4rem;
+      font-size: 0.95rem;
+    }
+
+    .skill-bar {
+      height: 8px;
+      background: var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .skill-fill {
+      height: 100%;
+      background: var(--accent);
+      border-radius: 4px;
+      width: 0; /* começa em 0 — animado pelo JS */
+      transition: width 1s ease;
+    }
+
+    @media (max-width: 600px) {
+      .hero-text h1 { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== CABEÇALHO / MENU ========== -->
+  <header>
+    <nav>
+      <span class="nav-logo">LM</span>
+
+      <!-- Links de navegação — o mesmo em todas as páginas -->
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html" class="active">Sobre mim</a></li>
+        <li><a href="formacao.html">Formação</a></li>
+        <li><a href="portfolio.html">Portfólio</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+
+      <div style="display:flex; gap:0.6rem; align-items:center;">
+        <!-- Botão de alternância de tema claro/escuro -->
+        <button id="theme-toggle" title="Alternar tema">🌙</button>
+        <!-- Botão hambúrguer para mobile -->
+        <button id="menu-toggle" aria-label="Abrir menu">☰</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ========== CONTEÚDO PRINCIPAL ========== -->
+  <main>
+
+    <!-- Seção Hero -->
+    <section class="hero">
+      <!-- Avatar com emoji como placeholder -->
+      <div class="hero-avatar" role="img" aria-label="Foto de Lucas Mendes">👨‍💻</div>
+
+      <div class="hero-text">
+        <h1>Olá, sou <span>Lucas Mendes</span></h1>
+        <p>
+          Desenvolvedor web apaixonado por criar experiências digitais
+          intuitivas e funcionais. Estudo Análise e Desenvolvimento de Sistemas
+          e adoro transformar ideias em código.
+        </p>
+        <a href="contato.html" class="btn">Entre em contato</a>
+      </div>
+    </section>
+
+    <!-- Informações pessoais -->
+    <section>
+      <h2 class="section-title">Sobre mim</h2>
+
+      <div class="info-grid">
+        <div class="info-item">
+          <span class="info-icon">📍</span>
+          <div>
+            <strong>Localização</strong>
+            <span>Fortaleza, CE — Brasil</span>
+          </div>
+        </div>
+        <div class="info-item">
+          <span class="info-icon">🎂</span>
+          <div>
+            <strong>Idade</strong>
+            <span>22 anos</span>
+          </div>
+        </div>
+        <div class="info-item">
+          <span class="info-icon">🎓</span>
+          <div>
+            <strong>Curso</strong>
+            <span>ADS — UNINTER</span>
+          </div>
+        </div>
+        <div class="info-item">
+          <span class="info-icon">💼</span>
+          <div>
+            <strong>Disponibilidade</strong>
+            <span>Freelance / Estágio</span>
+          </div>
+        </div>
+        <div class="info-item">
+          <span class="info-icon">🌐</span>
+          <div>
+            <strong>Idiomas</strong>
+            <span>Português nativo · Inglês intermediário</span>
+          </div>
+        </div>
+        <div class="info-item">
+          <span class="info-icon">📧</span>
+          <div>
+            <strong>E-mail</strong>
+            <span>lucas.mendes@email.com</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Parágrafo de apresentação -->
+      <div class="card">
+        <p>
+          Sou estudante do curso de <strong>Análise e Desenvolvimento de Sistemas</strong>
+          pela UNINTER, com foco em desenvolvimento web front-end. Tenho experiência prática
+          com HTML5, CSS3 e JavaScript, e estou sempre em busca de novos desafios que me
+          permitam crescer profissionalmente.
+        </p>
+        <br>
+        <p>
+          Acredito que a tecnologia deve ser acessível e inclusiva. Por isso, me preocupo
+          com usabilidade, boas práticas de código e experiência do usuário em cada projeto
+          que desenvolvo.
+        </p>
+      </div>
+    </section>
+
+    <!-- Hobbies -->
+    <section style="margin-top:3rem;">
+      <h2 class="section-title">Hobbies & Interesses</h2>
+
+      <div class="hobbies-grid">
+        <div class="hobby-card">
+          <span>📚</span>
+          <p>Leitura de tecnologia</p>
+        </div>
+        <div class="hobby-card">
+          <span>🎮</span>
+          <p>Games indie</p>
+        </div>
+        <div class="hobby-card">
+          <span>🚴</span>
+          <p>Ciclismo</p>
+        </div>
+        <div class="hobby-card">
+          <span>🎵</span>
+          <p>Música eletrônica</p>
+        </div>
+        <div class="hobby-card">
+          <span>✏️</span>
+          <p>Pixel Art</p>
+        </div>
+        <div class="hobby-card">
+          <span>☕</span>
+          <p>Café & podcasts</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Habilidades técnicas com barra animada -->
+    <section class="skills">
+      <h2 class="section-title">Habilidades Técnicas</h2>
+
+      <div class="skill-item">
+        <div class="skill-label"><span>HTML5</span><span>90%</span></div>
+        <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-label"><span>CSS3</span><span>85%</span></div>
+        <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-label"><span>JavaScript</span><span>70%</span></div>
+        <div class="skill-bar"><div class="skill-fill" data-width="70"></div></div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-label"><span>Git & GitHub</span><span>75%</span></div>
+        <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-label"><span>UI/UX básico</span><span>60%</span></div>
+        <div class="skill-bar"><div class="skill-fill" data-width="60"></div></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== RODAPÉ ========== -->
+  <footer>
+    <p>© 2025 Lucas Mendes · Desenvolvido com HTML5, CSS3 e JavaScript puro</p>
+  </footer>
+
+  <!-- ========== SCRIPTS ========== -->
+  <script src="main.js"></script>
+
+  <script>
+    /*
+     * Animação das barras de habilidade:
+     * Usa IntersectionObserver para acionar a animação
+     * apenas quando a seção entra na viewport.
+     */
+    const fills = document.querySelectorAll('.skill-fill');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          el.style.width = el.dataset.width + '%';
+          observer.unobserve(el); // anima apenas uma vez
+        }
+      });
+    }, { threshold: 0.3 });
+
+    fills.forEach(f => observer.observe(f));
+  </script>
+
+</body>
+</html>

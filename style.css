@@ -1,0 +1,236 @@
+/* =============================================
+   PORTFÓLIO PESSOAL — LUCAS MENDES
+   Arquivo: style.css
+   Descrição: Estilos globais, variáveis de tema,
+   layout, tipografia e responsividade.
+   ============================================= */
+
+/* ---------- VARIÁVEIS DE TEMA ---------- */
+:root {
+  --bg-primary:    #0d0d0d;
+  --bg-secondary:  #1a1a2e;
+  --bg-card:       #16213e;
+  --accent:        #e94560;
+  --accent-hover:  #c73652;
+  --text-primary:  #eaeaea;
+  --text-muted:    #a0a0b0;
+  --border:        #2a2a4a;
+  --success:       #4ade80;
+  --error:         #f87171;
+  --font-main:     'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --radius:        8px;
+  --transition:    0.3s ease;
+  --shadow:        0 4px 24px rgba(0,0,0,0.4);
+}
+
+/* Tema claro — ativado via JS adicionando .light-mode ao <body> */
+body.light-mode {
+  --bg-primary:   #f0f2f5;
+  --bg-secondary: #ffffff;
+  --bg-card:      #ffffff;
+  --text-primary: #1a1a2e;
+  --text-muted:   #555577;
+  --border:       #dde1ec;
+  --shadow:       0 4px 24px rgba(0,0,0,0.1);
+}
+
+/* ---------- RESET & BASE ---------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-main);
+  font-size: 16px;
+  line-height: 1.7;
+  transition: background-color var(--transition), color var(--transition);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+a:hover { color: var(--accent-hover); }
+
+img { max-width: 100%; display: block; }
+
+ul { list-style: none; }
+
+/* ---------- NAVEGAÇÃO ---------- */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+nav {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+/* Logo / nome no menu */
+.nav-logo {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 1px;
+}
+
+/* Links de navegação */
+.nav-links {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.nav-links a {
+  color: var(--text-primary);
+  padding: 0.4rem 1rem;
+  border-radius: var(--radius);
+  font-weight: 500;
+  transition: background var(--transition), color var(--transition);
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  background-color: var(--accent);
+  color: #fff;
+}
+
+/* Botão toggle de tema */
+#theme-toggle {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  padding: 0.35rem 0.8rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: border-color var(--transition), background var(--transition);
+}
+#theme-toggle:hover { border-color: var(--accent); }
+
+/* Botão hambúrguer — visível só em mobile */
+#menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+/* ---------- CONTEÚDO PRINCIPAL ---------- */
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+/* Título de seção padrão */
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  position: relative;
+  padding-bottom: 0.6rem;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 56px; height: 4px;
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+/* ---------- CARDS GENÉRICOS ---------- */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  transition: transform var(--transition), border-color var(--transition);
+}
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+}
+
+/* ---------- TAGS / BADGES ---------- */
+.tag {
+  display: inline-block;
+  background: rgba(233,69,96,0.15);
+  color: var(--accent);
+  border: 1px solid rgba(233,69,96,0.3);
+  padding: 0.2rem 0.7rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* ---------- BOTÃO PADRÃO ---------- */
+.btn {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.65rem 1.6rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition);
+}
+.btn:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+  color: #fff;
+}
+
+/* ---------- RODAPÉ ---------- */
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  border-top: 1px solid var(--border);
+  margin-top: 4rem;
+}
+
+/* ---------- RESPONSIVIDADE ---------- */
+@media (max-width: 768px) {
+  /* Esconde links no mobile, mostra hambúrguer */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 64px; left: 0; right: 0;
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border);
+    padding: 1rem 1.5rem;
+    gap: 0.3rem;
+  }
+
+  /* Classe adicionada pelo JS para abrir o menu */
+  .nav-links.open { display: flex; }
+
+  #menu-toggle { display: block; }
+
+  .section-title { font-size: 1.6rem; }
+}

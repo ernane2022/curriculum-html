@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lucas Mendes — Portfólio</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* --- Filtros de categoria --- */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 2rem;
+    }
+
+    .filter-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+      padding: 0.4rem 1.1rem;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: background var(--transition), border-color var(--transition),
+                  color var(--transition);
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    /* --- Grid de projetos --- */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform var(--transition), border-color var(--transition);
+    }
+    .project-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--accent);
+    }
+
+    /* Banner superior colorido do card */
+    .project-thumb {
+      height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5rem;
+    }
+
+    .project-body {
+      padding: 1.2rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+
+    .project-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      flex: 1;
+      margin-bottom: 1rem;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 0.8rem;
+    }
+
+    .project-links a {
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.35rem 0.9rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--accent);
+      transition: background var(--transition);
+    }
+    .project-links a:hover { background: var(--accent); color: #fff; }
+
+    /* Animação de fade ao filtrar */
+    .project-card.hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== MENU ========== -->
+  <header>
+    <nav>
+      <span class="nav-logo">LM</span>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Sobre mim</a></li>
+        <li><a href="formacao.html">Formação</a></li>
+        <li><a href="portfolio.html" class="active">Portfólio</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+      <div style="display:flex; gap:0.6rem; align-items:center;">
+        <button id="theme-toggle" title="Alternar tema">🌙</button>
+        <button id="menu-toggle" aria-label="Abrir menu">☰</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ========== CONTEÚDO ========== -->
+  <main>
+
+    <h2 class="section-title">Projetos</h2>
+    <p style="color:var(--text-muted); margin-bottom:2rem;">
+      Alguns dos projetos desenvolvidos durante meus estudos e em iniciativas pessoais.
+    </p>
+
+    <!-- Filtros de categoria — controlados pelo JS -->
+    <div class="filter-bar" id="filter-bar">
+      <button class="filter-btn active" data-filter="all">Todos</button>
+      <button class="filter-btn" data-filter="html-css">HTML/CSS</button>
+      <button class="filter-btn" data-filter="javascript">JavaScript</button>
+      <button class="filter-btn" data-filter="fullstack">Full Stack</button>
+    </div>
+
+    <!-- Grid de projetos -->
+    <div class="projects-grid" id="projects-grid">
+
+      <!-- Projeto 1 -->
+      <article class="project-card" data-category="html-css">
+        <div class="project-thumb" style="background: linear-gradient(135deg,#1a1a2e,#e94560);">🌮</div>
+        <div class="project-body">
+          <h3 class="project-title">Site — Restaurante Sabor Nordestino</h3>
+          <p class="project-desc">
+            Landing page para um restaurante fictício com cardápio, galeria de fotos e
+            seção de reservas. Totalmente responsivo.
+          </p>
+          <div class="project-tags">
+            <span class="tag">HTML5</span>
+            <span class="tag">CSS3</span>
+          </div>
+          <div class="project-links">
+            <a href="https://lucasmendes.github.io/restaurante-nordestino" target="_blank" rel="noopener">🔗 Demo</a>
+            <a href="https://github.com/lucasmendes/restaurante-nordestino" target="_blank" rel="noopener">📁 GitHub</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Projeto 2 -->
+      <article class="project-card" data-category="javascript">
+        <div class="project-thumb" style="background: linear-gradient(135deg,#0f3460,#533483);">🧮</div>
+        <div class="project-body">
+          <h3 class="project-title">Calculadora IMC</h3>
+          <p class="project-desc">
+            Calculadora de Índice de Massa Corporal com validação de campos, resultado
+            visual e faixa de classificação interativa.
+          </p>
+          <div class="project-tags">
+            <span class="tag">HTML5</span>
+            <span class="tag">CSS3</span>
+            <span class="tag">JavaScript</span>
+          </div>
+          <div class="project-links">
+            <a href="https://lucasmendes.github.io/calculadora-imc" target="_blank" rel="noopener">🔗 Demo</a>
+            <a href="https://github.com/lucasmendes/calculadora-imc" target="_blank" rel="noopener">📁 GitHub</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Projeto 3 -->
+      <article class="project-card" data-category="javascript">
+        <div class="project-thumb" style="background: linear-gradient(135deg,#1b4332,#40916c);">📋</div>
+        <div class="project-body">
+          <h3 class="project-title">To-Do List — Gerenciador de Tarefas</h3>
+          <p class="project-desc">
+            Aplicação de lista de tarefas com funcionalidades de adicionar, concluir,
+            remover e filtrar tarefas. Dados persistidos no localStorage.
+          </p>
+          <div class="project-tags">
+            <span class="tag">JavaScript</span>
+            <span class="tag">CSS3</span>
+          </div>
+          <div class="project-links">
+            <a href="https://lucasmendes.github.io/todo-list" target="_blank" rel="noopener">🔗 Demo</a>
+            <a href="https://github.com/lucasmendes/todo-list" target="_blank" rel="noopener">📁 GitHub</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Projeto 4 -->
+      <article class="project-card" data-category="html-css">
+        <div class="project-thumb" style="background: linear-gradient(135deg,#3d0c02,#e85d04);">☕</div>
+        <div class="project-body">
+          <h3 class="project-title">Landing Page — Cafeteria Aroma</h3>
+          <p class="project-desc">
+            Página institucional para uma cafeteria com design quente e aconchegante,
+            animações CSS e seção de produtos em destaque.
+          </p>
+          <div class="project-tags">
+            <span class="tag">HTML5</span>
+            <span class="tag">CSS3</span>
+          </div>
+          <div class="project-links">
+            <a href="https://lucasmendes.github.io/cafeteria-aroma" target="_blank" rel="noopener">🔗 Demo</a>
+            <a href="https://github.com/lucasmendes/cafeteria-aroma" target="_blank" rel="noopener">📁 GitHub</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Projeto 5 -->
+      <article class="project-card" data-category="fullstack">
+        <div class="project-thumb" style="background: linear-gradient(135deg,#10002b,#7b2d8b);">🛒</div>
+        <div class="project-body">
+          <h3 class="project-title">Mini E-commerce — Loja de Games</h3>
+          <p class="project-desc">
+            Protótipo de e-commerce com listagem de produtos, carrinho de compras
+            funcional e simulação de checkout em JavaScript.
+          </p>
+          <div class="project-tags">
+            <span class="tag">HTML5</span>
+            <span class="tag">CSS3</span>
+            <span class="tag">JavaScript</span>
+          </div>
+          <div class="project-links">
+            <a href="https://lucasmendes.github.io/loja-games" target="_blank" rel="noopener">🔗 Demo</a>
+            <a href="https://github.com/lucasmendes/loja-games" target="_blank" rel="noopener">📁 GitHub</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Projeto 6 -->
+      <article class="project-card" data-category="fullstack">
+        <div class="project-thumb" style="background: linear-gradient(135deg,#023e8a,#0077b6);">🌤️</div>
+        <div class="project-body">
+          <h3 class="project-title">App de Previsão do Tempo</h3>
+          <p class="project-desc">
+            Consulta de clima via API OpenWeatherMap, exibindo temperatura, umidade
+            e ícone de condição com interface limpa e responsiva.
+          </p>
+          <div class="project-tags">
+            <span class="tag">JavaScript</span>
+            <span class="tag">API REST</span>
+          </div>
+          <div class="project-links">
+            <a href="https://lucasmendes.github.io/weather-app" target="_blank" rel="noopener">🔗 Demo</a>
+            <a href="https://github.com/lucasmendes/weather-app" target="_blank" rel="noopener">📁 GitHub</a>
+          </div>
+        </div>
+      </article>
+
+    </div><!-- /projects-grid -->
+
+  </main>
+
+  <footer>
+    <p>© 2025 Lucas Mendes · Desenvolvido com HTML5, CSS3 e JavaScript puro</p>
+  </footer>
+
+  <script src="main.js"></script>
+
+  <script>
+    /*
+     * Filtro de projetos por categoria:
+     * Ao clicar em um botão de filtro, esconde/mostra
+     * os cards conforme o atributo data-category.
+     */
+    const filterBar  = document.getElementById('filter-bar');
+    const cards      = document.querySelectorAll('.project-card');
+
+    filterBar.addEventListener('click', (e) => {
+      const btn = e.target.closest('.filter-btn');
+      if (!btn) return;
+
+      /* Atualiza estado ativo dos botões */
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.dataset.filter;
+
+      /* Mostra/esconde cards */
+      cards.forEach(card => {
+        const match = filter === 'all' || card.dataset.category === filter;
+        card.classList.toggle('hidden', !match);
+      });
+    });
+  </script>
+
+</body>
+</html>
