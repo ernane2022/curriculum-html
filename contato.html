@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ernane Freitas — Contato</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    @media (max-width: 768px) {
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+
+    .contact-info { display: flex; flex-direction: column; gap: 1rem; }
+
+    .contact-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      transition: border-color var(--transition);
+    }
+    .contact-item:hover { border-color: var(--accent); }
+
+    .contact-item-icon { font-size: 1.6rem; flex-shrink: 0; }
+    .contact-item-info strong { display: block; font-size: 0.8rem; color: var(--text-muted); }
+    .contact-item-info span   { font-weight: 500; }
+
+    .form-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      box-shadow: var(--shadow);
+    }
+
+    .form-group { margin-bottom: 1.4rem; }
+
+    label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      color: var(--text-muted);
+    }
+
+    label .required { color: var(--accent); margin-left: 2px; }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 0.7rem 1rem;
+      color: var(--text-primary);
+      font-family: var(--font-main);
+      font-size: 0.95rem;
+      transition: border-color var(--transition), box-shadow var(--transition);
+      outline: none;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(233,69,96,0.2);
+    }
+
+    input.error, textarea.error {
+      border-color: var(--error) !important;
+      box-shadow: 0 0 0 3px rgba(248,113,113,0.2) !important;
+    }
+
+    textarea { resize: vertical; min-height: 130px; }
+
+    .field-error {
+      display: none;
+      color: var(--error);
+      font-size: 0.82rem;
+      margin-top: 0.3rem;
+    }
+
+    .btn-full { width: 100%; padding: 0.8rem; font-size: 1rem; }
+
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.65);
+      z-index: 200;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-overlay.show { display: flex; }
+
+    .modal-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      max-width: 420px;
+      width: 90%;
+      text-align: center;
+      box-shadow: var(--shadow);
+      animation: scaleIn 0.25s ease;
+    }
+
+    @keyframes scaleIn {
+      from { transform: scale(0.85); opacity: 0; }
+      to   { transform: scale(1);    opacity: 1; }
+    }
+
+    .modal-icon  { font-size: 3.5rem; margin-bottom: 1rem; }
+    .modal-title { font-size: 1.4rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .modal-text  { color: var(--text-muted); margin-bottom: 1.5rem; }
+  </style>
+</head>
+<body>
+
+  <!-- ========== MENU ========== -->
+  <header>
+    <nav>
+      <span class="nav-logo">EF</span>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Sobre mim</a></li>
+        <li><a href="formacao.html">Formação</a></li>
+        <li><a href="portfolio.html">Portfólio</a></li>
+        <li><a href="contato.html" class="active">Contato</a></li>
+      </ul>
+      <div style="display:flex; gap:0.6rem; align-items:center;">
+        <button id="theme-toggle" title="Alternar tema">🌙</button>
+        <button id="menu-toggle" aria-label="Abrir menu">☰</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ========== CONTEÚDO ========== -->
+  <main>
+    <h2 class="section-title">Contato</h2>
+    <p style="color:var(--text-muted); margin-bottom:2rem;">
+      Quer conversar sobre um projeto, oportunidade ou só trocar uma ideia? Manda mensagem!
+    </p>
+
+    <div class="contact-grid">
+
+      <!-- Coluna esquerda: apenas LinkedIn e GitHub -->
+      <div class="contact-info">
+        <div class="contact-item">
+          <span class="contact-item-icon">💼</span>
+          <div class="contact-item-info">
+            <strong>LinkedIn</strong>
+            <span><a href="https://www.linkedin.com/in/ernane-freitas-473609228/" target="_blank" rel="noopener">linkedin.com/in/ernane-freitas</a></span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="contact-item-icon">🐱</span>
+          <div class="contact-item-info">
+            <strong>GitHub</strong>
+            <span><a href="https://github.com/ernane2022" target="_blank" rel="noopener">github.com/ernane2022</a></span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="contact-item-icon">📍</span>
+          <div class="contact-item-info">
+            <strong>Localização</strong>
+            <span>Fortaleza, CE — Brasil</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Coluna direita: formulário -->
+      <div class="form-card">
+        <h3 style="margin-bottom:1.5rem; font-size:1.2rem;">Envie uma mensagem</h3>
+
+        <form id="contact-form" action="https://formspree.io/f/xeedrowe" method="POST" novalidate>
+
+          <div class="form-group">
+            <label for="nome">Nome <span class="required">*</span></label>
+            <input type="text" id="nome" name="nome" placeholder="Seu nome completo" autocomplete="name" />
+            <span class="field-error" id="erro-nome">Por favor, informe seu nome.</span>
+          </div>
+
+          <div class="form-group">
+            <label for="email">E-mail <span class="required">*</span></label>
+            <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com" autocomplete="email" />
+            <span class="field-error" id="erro-email">Informe um e-mail válido (ex: usuario@dominio.com).</span>
+          </div>
+
+          <div class="form-group">
+            <label for="mensagem">Mensagem <span class="required">*</span></label>
+            <textarea id="mensagem" name="mensagem" placeholder="Escreva sua mensagem aqui..."></textarea>
+            <span class="field-error" id="erro-mensagem">A mensagem não pode ficar em branco.</span>
+          </div>
+
+          <button type="submit" class="btn btn-full">Enviar Mensagem ✉️</button>
+
+        </form>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 Ernane Freitas · Desenvolvido com HTML5, CSS3 e JavaScript puro</p>
+  </footer>
+
+  <!-- Modal de confirmação -->
+  <div class="modal-overlay" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-box">
+      <div class="modal-icon">✅</div>
+      <h3 class="modal-title" id="modal-title">Mensagem enviada!</h3>
+      <p class="modal-text">
+        Obrigado pelo contato, <strong id="modal-nome"></strong>!<br>
+        Responderei em breve.
+      </p>
+      <button class="btn" id="modal-close">Fechar</button>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+
+  <script>
+    const form       = document.getElementById('contact-form');
+    const modal      = document.getElementById('modal');
+    const modalClose = document.getElementById('modal-close');
+    const modalNome  = document.getElementById('modal-nome');
+
+    function emailValido(v) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());
+    }
+
+    function setError(input, erroId, show) {
+      const erroEl = document.getElementById(erroId);
+      if (show) {
+        input.classList.add('error');
+        erroEl.style.display = 'block';
+      } else {
+        input.classList.remove('error');
+        erroEl.style.display = 'none';
+      }
+    }
+
+    ['nome','email','mensagem'].forEach(id => {
+      document.getElementById(id).addEventListener('input', function () {
+        setError(this, 'erro-' + id, false);
+      });
+    });
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const nome      = document.getElementById('nome');
+      const email     = document.getElementById('email');
+      const mensagem  = document.getElementById('mensagem');
+      const btnEnviar = form.querySelector('button[type="submit"]');
+
+      let valido = true;
+
+      if (nome.value.trim() === '') { setError(nome, 'erro-nome', true); valido = false; }
+      if (!emailValido(email.value)) { setError(email, 'erro-email', true); valido = false; }
+      if (mensagem.value.trim() === '') { setError(mensagem, 'erro-mensagem', true); valido = false; }
+
+      if (!valido) return;
+
+      btnEnviar.disabled    = true;
+      btnEnviar.textContent = 'Enviando...';
+
+      try {
+        const resposta = await fetch(form.action, {
+          method:  'POST',
+          headers: { 'Accept': 'application/json' },
+          body:    new FormData(form)
+        });
+
+        if (resposta.ok) {
+          modalNome.textContent = nome.value.trim();
+          form.reset();
+          modal.classList.add('show');
+        } else {
+          const dados = await resposta.json();
+          const msg   = dados?.errors?.map(err => err.message).join(', ') || 'Erro ao enviar. Tente novamente.';
+          alert('❌ ' + msg);
+        }
+      } catch (erro) {
+        alert('❌ Não foi possível conectar. Verifique sua internet e tente novamente.');
+      } finally {
+        btnEnviar.disabled    = false;
+        btnEnviar.textContent = 'Enviar Mensagem ✉️';
+      }
+    });
+
+    modalClose.addEventListener('click', () => modal.classList.remove('show'));
+    modal.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('show'); });
+  </script>
+
+</body>
+</html>

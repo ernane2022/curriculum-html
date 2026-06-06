@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ernane Freitas— Portfólio</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* --- Grid de projetos --- */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    /* --- Card em destaque (projeto principal) --- */
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform var(--transition), border-color var(--transition);
+    }
+    .project-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--accent);
+    }
+
+    .project-thumb {
+      height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5rem;
+    }
+
+    .project-body {
+      padding: 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+    }
+
+    .project-desc {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      line-height: 1.7;
+    }
+
+    /* Grid de screenshots 2x2 */
+    .screenshot-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.8rem;
+      margin: 1rem 0;
+    }
+
+    .screenshot-item { display: flex; flex-direction: column; gap: 0.3rem; }
+
+    .screenshot-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .screenshot-placeholder {
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      height: 110px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 0.8rem;
+      text-align: center;
+    }
+
+    .screenshot-placeholder span { font-size: 2rem; }
+    .screenshot-placeholder small { font-size: 0.75rem; color: var(--text-muted); }
+
+    /* Badges de funcionalidades */
+    .project-features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 1rem;
+    }
+
+    .feature-item {
+      background: rgba(124,140,248,0.12);
+      border: 1px solid rgba(124,140,248,0.25);
+      color: #a5b4fc;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 1rem;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 0.8rem;
+      margin-top: 1rem;
+    }
+
+    .project-links a {
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.35rem 0.9rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--accent);
+      transition: background var(--transition);
+    }
+    .project-links a:hover { background: var(--accent); color: #fff; }
+
+    @media (max-width: 600px) {
+      .screenshot-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== MENU ========== -->
+  <header>
+    <nav>
+      <span class="nav-logo">EF</span>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Sobre mim</a></li>
+        <li><a href="formacao.html">Formação</a></li>
+        <li><a href="portfolio.html" class="active">Portfólio</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+      <div style="display:flex; gap:0.6rem; align-items:center;">
+        <button id="theme-toggle" title="Alternar tema">🌙</button>
+        <button id="menu-toggle" aria-label="Abrir menu">☰</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ========== CONTEÚDO ========== -->
+  <main>
+
+    <h2 class="section-title">Projetos</h2>
+    <p style="color:var(--text-muted); margin-bottom:2rem;">
+      Projetos desenvolvidos com foco em soluções reais e boas práticas de desenvolvimento.
+    </p>
+
+    <!-- Grid de projetos -->
+    <div class="projects-grid" id="projects-grid">
+
+      <!-- Sistema de Gestão de Condomínio -->
+      <article class="project-card">
+        <div class="project-thumb" style="background: linear-gradient(135deg,#10002b,#7c8cf8);">🏢</div>
+        <div class="project-body">
+          <h3 class="project-title">Sistema de Gestão de Condomínio</h3>
+          <p class="project-desc">
+            Sistema web completo para gestão de condomínios residenciais. Dashboard
+            personalizado por perfil, chamados de manutenção, mural de bens e serviços,
+            comunicados, documentos, reuniões, financeiro com integração Pix via Asaas,
+            reserva de áreas comuns, portaria e controle de acesso.
+          </p>
+
+          <!-- Prints do sistema -->
+          <div class="screenshot-grid">
+
+            <div class="screenshot-item">
+              <div class="screenshot-label">Dashboard</div>
+              <div class="screenshot-placeholder" style="background:linear-gradient(135deg,#0f1117,#1a1d2e);">
+                <span>📊</span>
+                <small>Dashboard personalizado por perfil com chamados, comunicados e mural</small>
+              </div>
+            </div>
+
+            <div class="screenshot-item">
+              <div class="screenshot-label">Financeiro / Cobranças</div>
+              <div class="screenshot-placeholder" style="background:linear-gradient(135deg,#0f1117,#1a1d2e);">
+                <span>💰</span>
+                <small>Cobranças Pix com QR Code via integração Asaas</small>
+              </div>
+            </div>
+
+            <div class="screenshot-item">
+              <div class="screenshot-label">Manifestações</div>
+              <div class="screenshot-placeholder" style="background:linear-gradient(135deg,#0f1117,#1a1d2e);">
+                <span>💬</span>
+                <small>Reclamações, sugestões e dúvidas com resposta do síndico</small>
+              </div>
+            </div>
+
+            <div class="screenshot-item">
+              <div class="screenshot-label">Portaria / Autorizações</div>
+              <div class="screenshot-placeholder" style="background:linear-gradient(135deg,#0f1117,#1a1d2e);">
+                <span>🚪</span>
+                <small>Controle de acesso com pré-autorização de visitantes</small>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Funcionalidades principais -->
+          <div class="project-features">
+            <span class="feature-item">🔧 Chamados</span>
+            <span class="feature-item">🛍️ Mural</span>
+            <span class="feature-item">📢 Comunicados</span>
+            <span class="feature-item">💰 Financeiro Pix</span>
+            <span class="feature-item">🏊 Reservas</span>
+            <span class="feature-item">🚪 Portaria</span>
+            <span class="feature-item">📊 Relatórios</span>
+            <span class="feature-item">🔔 Notificações</span>
+            <span class="feature-item">🔒 LGPD</span>
+          </div>
+
+          <div class="project-tags">
+            <span class="tag">Python</span>
+            <span class="tag">Django 5.2</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">Docker</span>
+            <span class="tag">Asaas Pix</span>
+            <span class="tag">Bootstrap 5</span>
+          </div>
+
+          <div class="project-links">
+            <a href="https://github.com/ernanegit/condominio" target="_blank" rel="noopener">📁 GitHub</a>
+          </div>
+        </div>
+      </article>
+
+    </div><!-- /projects-grid -->
+
+  </main>
+
+  <footer>
+    <p>© 2025 Ernane Freitas · Desenvolvido com HTML5, CSS3 e JavaScript puro</p>
+  </footer>
+
+  <script src="main.js"></script>
+
+</body>
+</html>

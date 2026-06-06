@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lucas Mendes — Formação</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* --- Timeline de formação --- */
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    /* Linha vertical da timeline */
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 7px; top: 0; bottom: 0;
+      width: 2px;
+      background: var(--border);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2rem;
+    }
+
+    /* Bolinha marcadora */
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -1.7rem; top: 6px;
+      width: 14px; height: 14px;
+      background: var(--accent);
+      border-radius: 50%;
+      border: 2px solid var(--bg-primary);
+    }
+
+    .timeline-date {
+      font-size: 0.8rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .timeline-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.2rem;
+    }
+
+    .timeline-sub {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* --- Grid de idiomas --- */
+    .lang-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .lang-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      transition: border-color var(--transition);
+    }
+    .lang-card:hover { border-color: var(--accent); }
+
+    .lang-flag { font-size: 2rem; }
+
+    .lang-info strong { display: block; font-weight: 700; }
+    .lang-info span   { font-size: 0.85rem; color: var(--text-muted); }
+
+    /* --- Grid de cursos --- */
+    .courses-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.2rem;
+      margin-top: 1rem;
+    }
+
+    .course-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.4rem;
+      transition: border-color var(--transition), transform var(--transition);
+    }
+    .course-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+    }
+
+    .course-icon  { font-size: 1.8rem; margin-bottom: 0.6rem; }
+    .course-title { font-weight: 700; margin-bottom: 0.3rem; }
+    .course-meta  { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.6rem; }
+  </style>
+</head>
+<body>
+
+  <!-- ========== MENU (idêntico em todas as páginas) ========== -->
+  <header>
+    <nav>
+      <span class="nav-logo">EF</span>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Sobre mim</a></li>
+        <li><a href="formacao.html" class="active">Formação</a></li>
+        <li><a href="portfolio.html">Portfólio</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+      <div style="display:flex; gap:0.6rem; align-items:center;">
+        <button id="theme-toggle" title="Alternar tema">🌙</button>
+        <button id="menu-toggle" aria-label="Abrir menu">☰</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ========== CONTEÚDO ========== -->
+  <main>
+
+    <!-- Formação acadêmica em timeline -->
+    <section>
+      <h2 class="section-title">Formação Acadêmica</h2>
+
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <p class="timeline-date">2024</p>
+          <p class="timeline-title">Licenciatura em Filosofia</p>
+          <p class="timeline-sub">Centro Universitário Internacional — UNINTER · EAD</p>
+          <p class="timeline-desc">
+            Curso Superior de Licenciatura em Filosofia, concluído em 21 de maio de 2024.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <p class="timeline-date">2022 — 2023</p>
+          <p class="timeline-title">Pós-graduação em Sistemas Fotovoltaicos</p>
+          <p class="timeline-sub">Centro Universitário Internacional — UNINTER · EAD</p>
+          <p class="timeline-desc">
+            Especialização voltada ao projeto, dimensionamento e instalação de sistemas
+            de energia solar fotovoltaica on-grid e off-grid.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <p class="timeline-date">2020 — 2023</p>
+          <p class="timeline-title">Bacharelado em Engenharia Elétrica</p>
+          <p class="timeline-sub">Centro Universitário Internacional — UNINTER · EAD</p>
+          <p class="timeline-desc">
+            Formação em circuitos elétricos, eletrônica, sistemas de potência,
+            automação industrial e energias renováveis.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <p class="timeline-date">2016 — 2020</p>
+          <p class="timeline-title">Licenciatura em Matemática</p>
+          <p class="timeline-sub">Centro Universitário Internacional — UNINTER · EAD</p>
+          <p class="timeline-desc">
+            Formação de professor de matemática para educação básica e ensino médio,
+            com ênfase em didática, cálculo, álgebra e geometria.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Idiomas -->
+    <section>
+      <h2 class="section-title">Idiomas</h2>
+
+      <div class="lang-grid">
+        <div class="lang-card">
+          <span class="lang-flag">🇧🇷</span>
+          <div class="lang-info">
+            <strong>Português</strong>
+            <span>Nativo</span>
+          </div>
+        </div>
+        <div class="lang-card">
+          <span class="lang-flag">🇺🇸</span>
+          <div class="lang-info">
+            <strong>Inglês</strong>
+            <span>Intermediário (B1)</span>
+          </div>
+        </div>
+        <div class="lang-card">
+          <span class="lang-flag">🇪🇸</span>
+          <div class="lang-info">
+            <strong>Espanhol</strong>
+            <span>Básico (A2)</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cursos complementares -->
+    <section style="margin-top:3rem;">
+      <h2 class="section-title">Cursos & Certificações</h2>
+
+      <div class="courses-grid">
+
+        <div class="course-card">
+          <div class="course-icon">🟥</div>
+          <p class="course-title">Laravel 11 & 12: Framework, Ecossistema e Projetos Web</p>
+          <p class="course-meta">João Ribeiro · Udemy · 23% concluído</p>
+          <span class="tag">PHP</span> <span class="tag">Back-end</span>
+        </div>
+
+        <div class="course-card">
+          <div class="course-icon">🔥</div>
+          <p class="course-title">CodeIgniter 4 Júnior a Mestre Com Projetos Web</p>
+          <p class="course-meta">João Ribeiro · Udemy · 9% concluído</p>
+          <span class="tag">PHP</span> <span class="tag">MySQL</span>
+        </div>
+
+        <div class="course-card">
+          <div class="course-icon">💻</div>
+          <p class="course-title">Web Development Concepts with Scriptcase</p>
+          <p class="course-meta">Carlos Ferreira · Udemy</p>
+          <span class="tag">Scriptcase</span> <span class="tag">Web</span>
+        </div>
+
+        <div class="course-card">
+          <div class="course-icon">⚡</div>
+          <p class="course-title">Crie Dashboards Profissionais c/ FlutterFlow e Supabase</p>
+          <p class="course-meta">Francisco Lima · Udemy · 16% concluído</p>
+          <span class="tag">FlutterFlow</span> <span class="tag">No-Code</span>
+        </div>
+
+        <div class="course-card">
+          <div class="course-icon">📱</div>
+          <p class="course-title">Curso FlutterFlow Gratuito [2023] Do Zero ao App</p>
+          <p class="course-meta">No-Code Start-Up · Udemy</p>
+          <span class="tag">FlutterFlow</span> <span class="tag">Mobile</span>
+        </div>
+
+        <div class="course-card">
+          <div class="course-icon">☀️</div>
+          <p class="course-title">Microgeração Solar Fotovoltaica: Dimensionamento e Proposta</p>
+          <p class="course-meta">Eng. Ricardo Sá · Voya Cursos · 12% concluído</p>
+          <span class="tag">Energia Solar</span> <span class="tag">Engenharia</span>
+        </div>
+
+        <div class="course-card">
+          <div class="course-icon">🔆</div>
+          <p class="course-title">Curso PVsyst — Simulação Energia Solar Fotovoltaica ON-GRID</p>
+          <p class="course-meta">Eng. Ricardo Sá · Voya Cursos · 6% concluído</p>
+          <span class="tag">PVsyst</span> <span class="tag">Energia Solar</span>
+        </div>
+
+        <div class="course-card">
+          <div class="course-icon">🏗️</div>
+          <p class="course-title">Energia Solar Fotovoltaica: Projeto, Homologação, Instalação</p>
+          <p class="course-meta">Eng. Luís Brito · Udemy · 71% concluído</p>
+          <span class="tag">Energia Solar</span> <span class="tag">Engenharia</span>
+        </div>
+
+        <div class="course-card">
+          <div class="course-icon">🏢</div>
+          <p class="course-title">Projeto de Instalações Elétricas Prediais</p>
+          <p class="course-meta">G Master Treinamentos · Udemy</p>
+          <span class="tag">Elétrica</span> <span class="tag">Engenharia</span>
+        </div>
+
+        <div class="course-card">
+          <div class="course-icon">🔌</div>
+          <p class="course-title">Instalações Elétricas Residenciais</p>
+          <p class="course-meta">Elias Faustino de Sousa · Udemy</p>
+          <span class="tag">Elétrica</span> <span class="tag">Engenharia</span>
+        </div>
+
+        <div class="course-card">
+          <div class="course-icon">📐</div>
+          <p class="course-title">Revit MEP Elétrico</p>
+          <p class="course-meta">Bruno Oliviecki · Udemy</p>
+          <span class="tag">Revit</span> <span class="tag">BIM</span>
+        </div>
+
+        <div class="course-card">
+          <div class="course-icon">🎬</div>
+          <p class="course-title">How to Write a Great Script with Final Draft 10</p>
+          <p class="course-meta">Udemy</p>
+          <span class="tag">Roteiro</span> <span class="tag">Escrita</span>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2025 Ernane Freitas · Desenvolvido com HTML5, CSS3 e JavaScript puro</p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
