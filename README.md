@@ -1,8 +1,8 @@
-# 💼 Portfólio Pessoal — Lucas Mendes
+# 💼 Portfólio Pessoal — Ernane Freitas
 
 > Portfólio online desenvolvido como atividade prática da disciplina **Fundamentos da Programação Web** — UNINTER.
 
-🔗 **Site publicado:** [https://SEU-USUARIO.github.io/lucas-mendes](https://SEU-USUARIO.github.io/lucas-mendes)
+🔗 **Site publicado:** [https://ernane2022.github.io/curriculum-html](https://ernane2022.github.io/curriculum-html)
 
 ---
 
@@ -16,9 +16,9 @@ Portfólio pessoal desenvolvido com **HTML5, CSS3 e JavaScript puro**, sem o uso
 
 | Página | Arquivo | Descrição |
 |---|---|---|
-| Sobre Mim | `index.html` | Apresentação, hobbies e habilidades técnicas |
+| Sobre Mim | `index.html` | Apresentação, interesses e habilidades técnicas |
 | Formação | `formacao.html` | Histórico acadêmico, idiomas e cursos |
-| Portfólio | `portfolio.html` | Projetos com filtro por categoria |
+| Portfólio | `portfolio.html` | Projeto real com stack completa |
 | Contato | `contato.html` | Formulário com validação e envio real via Formspree |
 
 ---
@@ -39,17 +39,39 @@ Portfólio pessoal desenvolvido com **HTML5, CSS3 e JavaScript puro**, sem o uso
 - ✅ Toggle de tema **claro / escuro** com persistência via `localStorage`
 - ✅ Menu **hambúrguer** para dispositivos móveis
 - ✅ Barras de habilidade animadas com `IntersectionObserver`
-- ✅ Filtro de projetos por categoria (HTML/CSS, JavaScript, Back-end, Full Stack)
 - ✅ Formulário de contato com **validação em JavaScript** e **envio real** via Formspree
 - ✅ Modal de confirmação após envio do formulário
 - ✅ Layout responsivo (desktop, tablet e mobile)
 
 ---
 
+## 🎓 Formação Acadêmica
+
+- **Engenharia de Software** — UNINTER (cursando)
+- **Licenciatura em Filosofia** — UNINTER (2024)
+- **Pós-graduação em Sistemas Fotovoltaicos** — UNINTER (2022–2023)
+- **Bacharelado em Engenharia Elétrica** — UNINTER (2020–2023)
+- **Licenciatura em Matemática** — UNINTER (2016–2020)
+
+---
+
+## 🗂️ Projeto em Destaque
+
+### 🏢 Sistema de Gestão de Condomínio
+Sistema web completo desenvolvido com Django 5.2, PostgreSQL e Docker.
+
+**Repositório:** [github.com/ernanegit/condominio](https://github.com/ernanegit/condominio)
+
+**Funcionalidades:** Chamados · Mural · Comunicados · Financeiro Pix · Reservas · Portaria · Relatórios · Notificações · LGPD
+
+**Stack:** Python 3.12 · Django 5.2 · PostgreSQL 16 · Docker · Asaas Pix · Bootstrap 5
+
+---
+
 ## 📁 Estrutura de Arquivos
 
 ```
-lucas-mendes/
+curriculum-html/
 ├── index.html       # Página: Sobre Mim
 ├── formacao.html    # Página: Formação
 ├── portfolio.html   # Página: Portfólio
@@ -63,35 +85,38 @@ lucas-mendes/
 
 ## 🖥️ Como Executar Localmente
 
-1. Clone o repositório:
 ```bash
-git clone https://github.com/SEU-USUARIO/lucas-mendes.git
-cd lucas-mendes
+git clone https://github.com/ernane2022/curriculum-html.git
+cd curriculum-html
 ```
 
-2. Abra o arquivo `index.html` no navegador, ou use a extensão **Live Server** do VS Code para melhor experiência.
+Abra o `index.html` no navegador ou use a extensão **Live Server** do VS Code.
 
 ---
 
 ## 📦 Deploy — GitHub Pages
 
-O site está publicado automaticamente via **GitHub Pages** a partir da branch `main`.
+O site é publicado automaticamente via **GitHub Pages** a partir da branch `main`.
 
-Para republicar após alterações:
 ```bash
 git add .
 git commit -m "mensagem descrevendo a alteração"
 git push origin main
 ```
 
-O GitHub Pages atualiza o site em cerca de **1 a 2 minutos**.
-
 ---
 
 ## 📬 Formulário de Contato
 
-O envio do formulário é processado pelo **Formspree** (plano gratuito — 50 envios/mês).  
-As mensagens são entregues diretamente no e-mail cadastrado na conta Formspree.
+Envio processado pelo **Formspree** (plano gratuito — 50 envios/mês).
+
+---
+
+## 🔗 Links
+
+- 🌐 **Site:** [ernane2022.github.io/curriculum-html](https://ernane2022.github.io/curriculum-html)
+- 💼 **LinkedIn:** [linkedin.com/in/ernane-freitas-473609228](https://www.linkedin.com/in/ernane-freitas-473609228/)
+- 🐱 **GitHub:** [github.com/ernane2022](https://github.com/ernane2022)
 
 ---
 
@@ -101,4 +126,4 @@ Este projeto foi desenvolvido para fins educacionais — **UNINTER, 2025**.
 
 ---
 
-<p align="center">Desenvolvido com ❤️ por <strong>Lucas Mendes</strong></p>
+<p align="center">Desenvolvido com ❤️ por <strong>Ernane Freitas</strong></p>
