@@ -107,6 +107,72 @@
     }
     .project-links a:hover { background: var(--accent); color: #fff; }
 
+    /* --- Card em destaque (projeto principal) --- */
+    .project-featured {
+      grid-column: 1 / -1; /* ocupa toda a largura */
+    }
+
+    .project-featured .project-body {
+      padding: 1.5rem;
+    }
+
+    /* Grid de screenshots 2x2 */
+    .screenshot-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.8rem;
+      margin: 1rem 0;
+    }
+
+    .screenshot-item { display: flex; flex-direction: column; gap: 0.3rem; }
+
+    .screenshot-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .screenshot-placeholder {
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      height: 110px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 0.8rem;
+      text-align: center;
+    }
+
+    .screenshot-placeholder span { font-size: 2rem; }
+    .screenshot-placeholder small { font-size: 0.75rem; color: var(--text-muted); }
+
+    /* Badges de funcionalidades */
+    .project-features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 1rem;
+    }
+
+    .feature-item {
+      background: rgba(124,140,248,0.12);
+      border: 1px solid rgba(124,140,248,0.25);
+      color: #a5b4fc;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    @media (max-width: 600px) {
+      .screenshot-grid { grid-template-columns: 1fr; }
+      .project-featured { grid-column: auto; }
+    }
+
     /* Animação de fade ao filtrar */
     .project-card.hidden {
       display: none;
@@ -146,6 +212,7 @@
       <button class="filter-btn" data-filter="html-css">HTML/CSS</button>
       <button class="filter-btn" data-filter="javascript">JavaScript</button>
       <button class="filter-btn" data-filter="fullstack">Full Stack</button>
+      <button class="filter-btn" data-filter="backend">Back-end</button>
     </div>
 
     <!-- Grid de projetos -->
@@ -165,8 +232,7 @@
             <span class="tag">CSS3</span>
           </div>
           <div class="project-links">
-            <a href="https://lucasmendes.github.io/restaurante-nordestino" target="_blank" rel="noopener">🔗 Demo</a>
-            <a href="https://github.com/lucasmendes/restaurante-nordestino" target="_blank" rel="noopener">📁 GitHub</a>
+            <a href="https://github.com/ernane2022" target="_blank" rel="noopener">📁 GitHub</a>
           </div>
         </div>
       </article>
@@ -186,8 +252,7 @@
             <span class="tag">JavaScript</span>
           </div>
           <div class="project-links">
-            <a href="https://lucasmendes.github.io/calculadora-imc" target="_blank" rel="noopener">🔗 Demo</a>
-            <a href="https://github.com/lucasmendes/calculadora-imc" target="_blank" rel="noopener">📁 GitHub</a>
+            <a href="https://github.com/ernane2022" target="_blank" rel="noopener">📁 GitHub</a>
           </div>
         </div>
       </article>
@@ -206,8 +271,7 @@
             <span class="tag">CSS3</span>
           </div>
           <div class="project-links">
-            <a href="https://lucasmendes.github.io/todo-list" target="_blank" rel="noopener">🔗 Demo</a>
-            <a href="https://github.com/lucasmendes/todo-list" target="_blank" rel="noopener">📁 GitHub</a>
+            <a href="https://github.com/ernane2022" target="_blank" rel="noopener">📁 GitHub</a>
           </div>
         </div>
       </article>
@@ -226,8 +290,7 @@
             <span class="tag">CSS3</span>
           </div>
           <div class="project-links">
-            <a href="https://lucasmendes.github.io/cafeteria-aroma" target="_blank" rel="noopener">🔗 Demo</a>
-            <a href="https://github.com/lucasmendes/cafeteria-aroma" target="_blank" rel="noopener">📁 GitHub</a>
+            <a href="https://github.com/ernane2022" target="_blank" rel="noopener">📁 GitHub</a>
           </div>
         </div>
       </article>
@@ -247,8 +310,86 @@
             <span class="tag">JavaScript</span>
           </div>
           <div class="project-links">
-            <a href="https://lucasmendes.github.io/loja-games" target="_blank" rel="noopener">🔗 Demo</a>
-            <a href="https://github.com/lucasmendes/loja-games" target="_blank" rel="noopener">📁 GitHub</a>
+            <a href="https://github.com/ernane2022" target="_blank" rel="noopener">📁 GitHub</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Projeto 7 — Sistema de Gestão de Condomínio -->
+      <article class="project-card project-featured" data-category="backend">
+        <div class="project-thumb" style="background: linear-gradient(135deg,#10002b,#7c8cf8);">🏢</div>
+        <div class="project-body">
+          <h3 class="project-title">Sistema de Gestão de Condomínio</h3>
+          <p class="project-desc">
+            Sistema web completo para gestão de condomínios residenciais. Dashboard
+            personalizado por perfil, chamados de manutenção, mural de bens e serviços,
+            comunicados, documentos, reuniões, financeiro com integração Pix via Asaas,
+            reserva de áreas comuns, portaria e controle de acesso.
+          </p>
+
+          <!-- Prints do sistema -->
+          <div class="project-screenshots">
+            <div class="screenshot-grid">
+
+              <div class="screenshot-item">
+                <div class="screenshot-label">Dashboard</div>
+                <div class="screenshot-placeholder" style="background:linear-gradient(135deg,#0f1117,#1a1d2e);">
+                  <span>📊</span>
+                  <small>Dashboard personalizado por perfil com chamados, comunicados e mural</small>
+                </div>
+              </div>
+
+              <div class="screenshot-item">
+                <div class="screenshot-label">Financeiro / Cobranças</div>
+                <div class="screenshot-placeholder" style="background:linear-gradient(135deg,#0f1117,#1a1d2e);">
+                  <span>💰</span>
+                  <small>Cobranças Pix com QR Code via integração Asaas</small>
+                </div>
+              </div>
+
+              <div class="screenshot-item">
+                <div class="screenshot-label">Manifestações</div>
+                <div class="screenshot-placeholder" style="background:linear-gradient(135deg,#0f1117,#1a1d2e);">
+                  <span>💬</span>
+                  <small>Reclamações, sugestões e dúvidas com resposta do síndico</small>
+                </div>
+              </div>
+
+              <div class="screenshot-item">
+                <div class="screenshot-label">Portaria / Autorizações</div>
+                <div class="screenshot-placeholder" style="background:linear-gradient(135deg,#0f1117,#1a1d2e);">
+                  <span>🚪</span>
+                  <small>Controle de acesso com pré-autorização de visitantes</small>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Funcionalidades principais em lista visual -->
+          <div class="project-features">
+            <span class="feature-item">🔧 Chamados</span>
+            <span class="feature-item">🛍️ Mural</span>
+            <span class="feature-item">📢 Comunicados</span>
+            <span class="feature-item">💰 Financeiro Pix</span>
+            <span class="feature-item">🏊 Reservas</span>
+            <span class="feature-item">🚪 Portaria</span>
+            <span class="feature-item">📊 Relatórios</span>
+            <span class="feature-item">🔔 Notificações</span>
+            <span class="feature-item">🔒 LGPD</span>
+          </div>
+
+          <div class="project-tags" style="margin-top:1rem;">
+            <span class="tag">Python</span>
+            <span class="tag">Django 5.2</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">Docker</span>
+            <span class="tag">Asaas Pix</span>
+            <span class="tag">Bootstrap 5</span>
+          </div>
+
+          <div class="project-links" style="margin-top:1rem;">
+            <a href="https://github.com/ernanegit/condominio" target="_blank" rel="noopener">📁 GitHub</a>
           </div>
         </div>
       </article>
@@ -267,8 +408,7 @@
             <span class="tag">API REST</span>
           </div>
           <div class="project-links">
-            <a href="https://lucasmendes.github.io/weather-app" target="_blank" rel="noopener">🔗 Demo</a>
-            <a href="https://github.com/lucasmendes/weather-app" target="_blank" rel="noopener">📁 GitHub</a>
+            <a href="https://github.com/ernane2022" target="_blank" rel="noopener">📁 GitHub</a>
           </div>
         </div>
       </article>
@@ -283,32 +423,7 @@
 
   <script src="main.js"></script>
 
-  <script>
-    /*
-     * Filtro de projetos por categoria:
-     * Ao clicar em um botão de filtro, esconde/mostra
-     * os cards conforme o atributo data-category.
-     */
-    const filterBar  = document.getElementById('filter-bar');
-    const cards      = document.querySelectorAll('.project-card');
 
-    filterBar.addEventListener('click', (e) => {
-      const btn = e.target.closest('.filter-btn');
-      if (!btn) return;
-
-      /* Atualiza estado ativo dos botões */
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      const filter = btn.dataset.filter;
-
-      /* Mostra/esconde cards */
-      cards.forEach(card => {
-        const match = filter === 'all' || card.dataset.category === filter;
-        card.classList.toggle('hidden', !match);
-      });
-    });
-  </script>
 
 </body>
 </html>
