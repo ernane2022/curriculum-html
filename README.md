@@ -60,7 +60,7 @@ Portfólio pessoal desenvolvido com **HTML5, CSS3 e JavaScript puro**, sem o uso
 ### 🏢 Sistema de Gestão de Condomínio
 Sistema web completo desenvolvido com Django 5.2, PostgreSQL e Docker.
 
-**Repositório:** [github.com/ernanegit/condominio](https://github.com/ernanegit/condominio)
+**Repositório:** privado
 
 **Funcionalidades:** Chamados · Mural · Comunicados · Financeiro Pix · Reservas · Portaria · Relatórios · Notificações · LGPD
 
